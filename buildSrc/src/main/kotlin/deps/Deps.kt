@@ -34,7 +34,7 @@ object Deps {
     }
   }
 
-  const val androidGradlePlugin = "com.android.tools.build:gradle:7.0.0-alpha14"
+  const val androidGradlePlugin = "com.android.tools.build:gradle:7.0.0-alpha15"
   const val material = "com.google.android.material:material:1.3.0"
   const val floatingActionButton = "com.getbase:floatingactionbutton:1.10.1"
   const val materialCab = "com.afollestad:material-cab:2.0.1"
@@ -79,7 +79,7 @@ object Deps {
 
   object Kotlin {
     private const val versionKotlin = "1.4.31"
-    private const val versionCoroutines = "1.4.2"
+    private const val versionCoroutines = "1.4.3"
 
     const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versionCoroutines"
     const val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versionCoroutines"
