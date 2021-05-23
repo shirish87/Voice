@@ -35,4 +35,25 @@
       android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
       app:drawableStartCompat="@drawable/bookmark" />
 
+    <TextView
+      android:id="@+id/markAsCurrent"
+      style="@style/BottomSheetRow"
+      android:text="@string/mark_as_current"
+      android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+      app:drawableStartCompat="@drawable/current" />
+
+    <TextView
+      android:id="@+id/markAsNotStarted"
+      style="@style/BottomSheetRow"
+      android:text="@string/mark_as_not_started"
+      android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+      app:drawableStartCompat="@drawable/not_started" />
+
+    <TextView
+      android:id="@+id/markAsComplete"
+      style="@style/BottomSheetRow"
+      android:text="@string/mark_as_complete"
+      android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+      app:drawableStartCompat="@drawable/check" />
+
 </LinearLayout>

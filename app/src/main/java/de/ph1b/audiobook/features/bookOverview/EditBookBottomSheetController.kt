@@ -2,6 +2,7 @@ package de.ph1b.audiobook.features.bookOverview
 
 import android.app.Dialog
 import android.os.Bundle
+import android.view.View
 import androidx.core.view.doOnLayout
 import com.bluelinelabs.conductor.Controller
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -11,12 +12,17 @@ import de.ph1b.audiobook.common.conductor.DialogController
 import de.ph1b.audiobook.data.Book
 import de.ph1b.audiobook.data.repo.BookRepository
 import de.ph1b.audiobook.databinding.BookMoreBottomSheetBinding
+import de.ph1b.audiobook.features.bookOverview.list.header.BookOverviewCategory
+import de.ph1b.audiobook.features.bookOverview.list.header.category
 import de.ph1b.audiobook.features.bookmarks.BookmarkController
 import de.ph1b.audiobook.injection.appComponent
 import de.ph1b.audiobook.misc.RouterProvider
 import de.ph1b.audiobook.misc.conductor.asTransaction
 import de.ph1b.audiobook.misc.getUUID
 import de.ph1b.audiobook.misc.putUUID
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -70,6 +76,63 @@ class EditBookBottomSheetController(args: Bundle) : DialogController(args) {
       router.pushController(controller.asTransaction())
 
       dismissDialog()
+    }
+    binding.markAsCurrent.setOnClickListener {
+      GlobalScope.launch(Dispatchers.IO) {
+        val updatedBook = book.updateContent {
+          copy(
+            settings = settings.copy(
+              currentFile = chapters[0].file,
+              positionInChapter = 1
+            )
+          )
+        }
+        repo.addBook(updatedBook)
+      }
+      dismissDialog()
+    }
+    binding.markAsCurrent.visibility = if (book.category == BookOverviewCategory.CURRENT) {
+      View.GONE
+    } else {
+      View.VISIBLE
+    }
+    binding.markAsNotStarted.setOnClickListener {
+      GlobalScope.launch(Dispatchers.IO) {
+        val updatedBook = book.updateContent {
+          copy(
+            settings = settings.copy(
+              currentFile = chapters[0].file,
+              positionInChapter = 0
+            )
+          )
+        }
+        repo.addBook(updatedBook)
+      }
+      dismissDialog()
+    }
+    binding.markAsNotStarted.visibility = if (book.category == BookOverviewCategory.NOT_STARTED) {
+      View.GONE
+    } else {
+      View.VISIBLE
+    }
+    binding.markAsComplete.setOnClickListener {
+      GlobalScope.launch(Dispatchers.IO) {
+        val updatedBook = book.updateContent {
+          copy(
+            settings = settings.copy(
+              currentFile = chapters[chapters.size - 1].file,
+              positionInChapter = chapters[chapters.size - 1].duration
+            )
+          )
+        }
+        repo.addBook(updatedBook)
+      }
+      dismissDialog()
+    }
+    binding.markAsComplete.visibility = if (book.category == BookOverviewCategory.FINISHED) {
+      View.GONE
+    } else {
+      View.VISIBLE
     }
 
     return dialog
