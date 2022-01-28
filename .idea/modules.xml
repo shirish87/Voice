@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/paulwoitaschek-voice.iml" filepath="$PROJECT_DIR$/.idea/paulwoitaschek-voice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/paulwoitaschek-voice.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/paulwoitaschek-voice.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/common/paulwoitaschek-voice.common.iml" filepath="$PROJECT_DIR$/.idea/modules/common/paulwoitaschek-voice.common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/core/paulwoitaschek-voice.core.iml" filepath="$PROJECT_DIR$/.idea/modules/core/paulwoitaschek-voice.core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/covercolorextractor/paulwoitaschek-voice.covercolorextractor.iml" filepath="$PROJECT_DIR$/.idea/modules/covercolorextractor/paulwoitaschek-voice.covercolorextractor.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/paulwoitaschek-voice.data.iml" filepath="$PROJECT_DIR$/.idea/modules/data/paulwoitaschek-voice.data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ffmpeg/paulwoitaschek-voice.ffmpeg.iml" filepath="$PROJECT_DIR$/.idea/modules/ffmpeg/paulwoitaschek-voice.ffmpeg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/loudness/paulwoitaschek-voice.loudness.iml" filepath="$PROJECT_DIR$/.idea/modules/loudness/paulwoitaschek-voice.loudness.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/playback/paulwoitaschek-voice.playback.iml" filepath="$PROJECT_DIR$/.idea/modules/playback/paulwoitaschek-voice.playback.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/playbackScreen/paulwoitaschek-voice.playbackScreen.iml" filepath="$PROJECT_DIR$/.idea/modules/playbackScreen/paulwoitaschek-voice.playbackScreen.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/scanner/paulwoitaschek-voice.scanner.iml" filepath="$PROJECT_DIR$/.idea/modules/scanner/paulwoitaschek-voice.scanner.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/settings/paulwoitaschek-voice.settings.iml" filepath="$PROJECT_DIR$/.idea/modules/settings/paulwoitaschek-voice.settings.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sleepTimer/paulwoitaschek-voice.sleepTimer.iml" filepath="$PROJECT_DIR$/.idea/modules/sleepTimer/paulwoitaschek-voice.sleepTimer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/strings/paulwoitaschek-voice.strings.iml" filepath="$PROJECT_DIR$/.idea/modules/strings/paulwoitaschek-voice.strings.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/plugins/plugins.iml" filepath="$PROJECT_DIR$/.idea/modules/plugins/plugins.iml" />
+    </modules>
+  </component>
+</project>

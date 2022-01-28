@@ -24,7 +24,9 @@ import de.ph1b.audiobook.injection.appComponent
 import de.ph1b.audiobook.misc.conductor.asTransaction
 import de.ph1b.audiobook.misc.conductor.clearAfterDestroyView
 import de.ph1b.audiobook.misc.conductor.popOrBack
+import de.ph1b.audiobook.scanner.CoverFromDiscCollector
 import de.ph1b.audiobook.uitools.BookChangeHandler
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.UUID
 import javax.inject.Inject
@@ -42,6 +44,9 @@ class BookCategoryController(bundle: Bundle) :
 
   @Inject
   lateinit var galleryPicker: GalleryPicker
+
+  @Inject
+  lateinit var coverFromDiscCollector: CoverFromDiscCollector
 
   constructor(category: BookOverviewCategory) : this(
     Bundle().apply {
@@ -139,6 +144,12 @@ class BookCategoryController(bundle: Bundle) :
 
   override fun onFileCoverRequested(book: Book) {
     galleryPicker.pick(book.id, this)
+  }
+
+  override fun onFileEmbedCoverRequested(book: Book) {
+    lifecycleScope.launch(Dispatchers.IO) {
+      coverFromDiscCollector.findAndSaveCoverEmbedded(book)
+    }
   }
 }
 

@@ -70,6 +70,9 @@ class EditBookBottomSheetController(args: Bundle) : DialogController(args) {
       callback().onFileCoverRequested(book)
       dismissDialog()
     }
+    binding.fileEmbedCover.setOnClickListener {
+      dismissDialog()
+    }
     binding.bookmark.setOnClickListener {
       val router = (activity as RouterProvider).provideRouter()
       val controller = BookmarkController(book.id)
@@ -158,5 +161,6 @@ class EditBookBottomSheetController(args: Bundle) : DialogController(args) {
   interface Callback {
     fun onInternetCoverRequested(book: Book)
     fun onFileCoverRequested(book: Book)
+    fun onFileEmbedCoverRequested(book: Book)
   }
 }

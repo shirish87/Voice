@@ -29,6 +29,13 @@
       app:drawableStartCompat="@drawable/ic_image" />
 
     <TextView
+      android:id="@+id/fileEmbedCover"
+      style="@style/BottomSheetRow"
+      android:text="@string/reload_book_cover"
+      android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+      app:drawableStartCompat="@drawable/ic_image" />
+
+    <TextView
       android:id="@+id/bookmark"
       style="@style/BottomSheetRow"
       android:text="@string/bookmark"

@@ -28,7 +28,7 @@ constructor(
   private val mediaScanner: MediaScanner,
   private val playStateManager: PlayStateManager,
   private val playerController: PlayerController,
-  coverFromDiscCollector: CoverFromDiscCollector,
+  private val coverFromDiscCollector: CoverFromDiscCollector,
   @Named(PrefKeys.CURRENT_BOOK)
   private val currentBookIdPref: Pref<UUID>,
   @Named(PrefKeys.GRID_MODE)
@@ -45,6 +45,8 @@ constructor(
   }
 
   val coverChanged: Flow<UUID> = coverFromDiscCollector.coverChanged()
+
+  suspend fun reloadFileEmbedCover(book: Book) = coverFromDiscCollector.findAndSaveCoverEmbedded(book)
 
   fun state(): Flow<BookOverviewState> {
     val bookStream = repo.flow()

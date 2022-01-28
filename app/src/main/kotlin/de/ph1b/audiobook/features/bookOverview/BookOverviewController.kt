@@ -32,6 +32,7 @@ import de.ph1b.audiobook.misc.conductor.clearAfterDestroyViewNullable
 import de.ph1b.audiobook.misc.postedIfComputingLayout
 import de.ph1b.audiobook.uitools.BookChangeHandler
 import de.ph1b.audiobook.uitools.PlayPauseDrawableSetter
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.launch
 import timber.log.Timber
@@ -271,6 +272,12 @@ class BookOverviewController :
 
   override fun onFileCoverRequested(book: Book) {
     galleryPicker.pick(book.id, this)
+  }
+
+  override fun onFileEmbedCoverRequested(book: Book) {
+    lifecycleScope.launch(Dispatchers.IO) {
+      viewModel.reloadFileEmbedCover(book)
+    }
   }
 
   override fun onDestroyView() {

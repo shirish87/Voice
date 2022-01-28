@@ -47,12 +47,13 @@ class CoverFromDiscCollector
     findAndSaveCoverEmbedded(book)
   }
 
-  private suspend fun findAndSaveCoverEmbedded(book: Book) {
+  suspend fun findAndSaveCoverEmbedded(book: Book) {
     getEmbeddedCover(book.content.chapters)?.let {
       val coverFile = book.coverFile(context)
       imageHelper.saveCover(it, coverFile)
       picasso.invalidate(coverFile)
       coverChanged.emit(book.id)
+      Timber.d("media-scanner: ${book.name}")
     }
   }
 

@@ -30,6 +30,7 @@
     <string name="change_book_name">Name</string>
     <string name="download_book_cover">Cover from internet</string>
     <string name="pick_book_cover">Cover from file system</string>
+    <string name="reload_book_cover">Cover from embedded</string>
     <string name="edit_book_title">Edit book</string>
     <string name="mark_as_complete">Mark as Completed</string>
     <string name="mark_as_current">Mark as Current</string>

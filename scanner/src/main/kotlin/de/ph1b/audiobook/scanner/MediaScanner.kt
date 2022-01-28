@@ -258,6 +258,7 @@ class MediaScanner
   /** Updates a book. Adds the new chapters to the book and corrects the
    * [BookContent.currentFile] and [BookContent.positionInChapter]. **/
   private suspend fun updateBook(bookExisting: Book, newChapters: List<Chapter>) {
+    Timber.d("media-scanner: updateBook: ${bookExisting.name}")
     var bookToUpdate = bookExisting.update(updateSettings = { copy(active = true) })
     val bookHasChanged = (bookToUpdate.content.chapters != newChapters) || !bookExisting.content.settings.active
     // sort chapters
