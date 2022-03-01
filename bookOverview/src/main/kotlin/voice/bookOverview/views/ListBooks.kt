@@ -2,7 +2,7 @@ package voice.bookOverview.views
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -30,7 +30,7 @@ import voice.bookOverview.R
 import voice.data.Book
 
 @Composable
-internal fun ListBooks(viewState: BookOverviewViewState.Content, onBookClick: (Book.Id) -> Unit) {
+internal fun ListBooks(viewState: BookOverviewViewState.Content, onBookClick: (Book.Id) -> Unit, onBookLongClick: (Book.Id) -> Unit) {
   LazyColumn(
     verticalArrangement = Arrangement.spacedBy(8.dp),
     contentPadding = PaddingValues(top = 24.dp, start = 8.dp, end = 8.dp, bottom = 16.dp)
@@ -57,7 +57,8 @@ internal fun ListBooks(viewState: BookOverviewViewState.Content, onBookClick: (B
         ListBookRow(
           modifier = Modifier.animateItemPlacement(),
           book = book,
-          onBookClick = onBookClick
+          onBookClick = onBookClick,
+          onBookLongClick = onBookLongClick,
         )
       }
     }
@@ -69,11 +70,15 @@ private fun ListBookRow(
   modifier: Modifier = Modifier,
   book: BookOverviewViewState.Content.BookViewState,
   onBookClick: (Book.Id) -> Unit,
+  onBookLongClick: (Book.Id) -> Unit,
 ) {
   Card(
     modifier
       .fillMaxWidth()
-      .clickable { onBookClick(book.id) }
+      .combinedClickable(
+        onClick = { onBookClick(book.id) },
+        onLongClick = { onBookLongClick(book.id) },
+      )
   ) {
     Column {
       Row {

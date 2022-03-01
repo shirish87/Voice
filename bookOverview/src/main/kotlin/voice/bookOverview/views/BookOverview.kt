@@ -42,6 +42,7 @@ fun BookOverview(
   onLayoutIconClick: () -> Unit,
   onSettingsClick: () -> Unit,
   onBookClick: (Book.Id) -> Unit,
+  onBookLongClick: (Book.Id) -> Unit,
   onBookFolderClick: () -> Unit,
   onPlayButtonClick: () -> Unit,
 ) {
@@ -79,10 +80,10 @@ fun BookOverview(
       is BookOverviewViewState.Content -> {
         when (viewState.layoutMode) {
           BookOverviewViewState.Content.LayoutMode.List -> {
-            ListBooks(viewState, onBookClick)
+            ListBooks(viewState, onBookClick, onBookLongClick)
           }
           BookOverviewViewState.Content.LayoutMode.Grid -> {
-            GridBooks(viewState, onBookClick)
+            GridBooks(viewState, onBookClick, onBookLongClick)
           }
         }
       }
@@ -171,6 +172,7 @@ private fun BookOverviewPreview(
       onLayoutIconClick = {},
       onSettingsClick = {},
       onBookClick = {},
+      onBookLongClick = {},
       onBookFolderClick = {},
       onPlayButtonClick = {}
     )

@@ -52,6 +52,7 @@ class BookOverviewController : ComposeController(), EditBookBottomSheetControlle
       onLayoutIconClick = viewModel::toggleGrid,
       onSettingsClick = ::toSettings,
       onBookClick = ::toBook,
+      onBookLongClick = ::toBookOptions,
       onBookFolderClick = ::toFolderOverview,
       onPlayButtonClick = viewModel::playPause
     )
@@ -78,6 +79,10 @@ class BookOverviewController : ComposeController(), EditBookBottomSheetControlle
       currentBookIdPref.updateData { bookId }
       router.pushController(BookPlayController(bookId).asTransaction())
     }
+  }
+
+  private fun toBookOptions(bookId: Book.Id) {
+    EditBookBottomSheetController(this, bookId).showDialog(router)
   }
 
 
