@@ -27,7 +27,10 @@
     <string name="download_book_cover">Cover from internet</string>
     <string name="pick_book_cover">Cover from file system</string>
     <string name="edit_book_title">Edit book</string>
-    l    <!--JumpToPosition-->
+    <string name="mark_as_complete">Mark as Completed</string>
+    <string name="mark_as_current">Mark as Current</string>
+    <string name="mark_as_not_started">Mark as Not Started Yet</string>
+    <!--JumpToPosition-->
     <string name="action_time_change">Jump to</string>
     <!--BookAdding-->
     <string name="adding_failed_subfolder">The folders must not be a subfolder of each other:</string>
